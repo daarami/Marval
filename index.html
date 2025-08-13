@@ -47,19 +47,37 @@
     }
 
     @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem; /* menos padding pero con espacio */
+    gap: 1.5rem; /* menos espacio para que no se vea gigante */
+  }
 
-      .hero-text {
-        max-width: 100%;
-      }
+  .hero-text {
+    max-width: 100%;
+    padding: 0 1rem; /* margen interno para que no toque bordes */
+  }
 
-      .hero h1 {
-        font-size: 2.2rem;
-      }
+  .hero h1 {
+    font-size: 2rem; /* más pequeño y cómodo */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .hero-img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px;
+    margin: 0 auto; /* centra la imagen */
+    display: block;
+  }
     }
 
     .linea-amarilla {
@@ -138,3 +156,4 @@
 
 
 </html>
+
