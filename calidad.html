@@ -110,6 +110,39 @@
       border-radius: 2px;
       margin: 1.5rem 0;
     }
+
+    @media (max-width: 768px) {
+  .features {
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    max-width: 100%;
+  }
+
+  .feature-card {
+    flex-direction: column; /* imagen arriba, texto abajo para pantallas pequeñas */
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .feature-img {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .feature-img img {
+    object-fit: cover;
+    height: 180px;
+  }
+
+  .feature-content {
+    border-bottom: none;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+}
+
   </style>
 </head>
 
@@ -212,5 +245,6 @@
   </div>
 </footer>
 </body>
+
 
 </html>
