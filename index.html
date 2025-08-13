@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio | Marval</title>
+  <link rel="stylesheet" href="./css/nav.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="icon" href="./img/marval_logo.png" type="image/png" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff, #fdf9e6);
+      color: #1d1d1d;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 3rem;
+    }
+
+    .hero-text {
+      flex: 1 1 400px;
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-family: 'CreatoDisplay-Bold', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .hero-img {
+      flex: 1 1 300px;
+      max-width: 400px;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-text,
+      .hero-img {
+        max-width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    .linea-amarilla {
+      width: 120px;
+      height: 4px;
+      background-color: #ffcc00;
+      border-radius: 2px;
+      margin: 1.5rem 0;
+      /* espacio arriba y abajo */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav-placeholder">
+    <nav>
+      <div class="logo">
+        <a href="index.html"><img src="./img/marval.png" alt="Logo Marval"></a>
+      </div>
+
+      <div class="nav-links">
+        <a href="productos.html">Productos</a>
+        <a href="calidad.html">Calidad</a>
+      </div>
+
+      <div class="nav-contacto">
+        <a href="contacto.html" class="contacto-btn">
+          <i class="fa-solid fa-phone"></i> Contáctanos
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Resortes Industriales con Calidad y Precisión</h1>
+        <p>Diseñamos y fabricamos resortes para compresión, tensión y torsión con materiales certificados. Más de 25
+          años de experiencia nos respaldan.</p>
+        <div class="linea-amarilla"></div>
+      </div>
+      <img src="./img/resortes.png" alt="Producción de resortes Marval" class="hero-img" />
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <i class="fa-solid fa-certificate"></i>
+        <h3>Materiales Certificados</h3>
+        <p>Usamos acero inoxidable y tipo piano para máxima resistencia.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fa-solid fa-industry"></i>
+        <h3>Fabricación CNC</h3>
+        <p>Alta precisión con tecnología de control numérico automatizada.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fa-solid fa-truck-fast"></i>
+        <h3>Entregas Eficientes</h3>
+        <p>Cumplimos tus tiempos con atención directa y confiable.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="./img/marvalb.png" alt="Logo Marval" />
+    </div>
+    <div class="footer-contact">
+      <p><strong>Maximiliano Ramírez Valencia</strong></p>
+      <p class="tel">715 138 5054</p>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

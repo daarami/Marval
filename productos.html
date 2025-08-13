@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos | Marval</title>
+  <link rel="stylesheet" href="./css/nav.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="icon" href="./img/marval_logo.png" type="image/png" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff, #fdf9e6);
+      color: #1d1d1d;
+      font-family: sans-serif;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      /* un poquito más de espacio entre tarjetas */
+      padding: 2rem 3rem;
+      max-width: 1100px;
+      /* un poquito más ancho que antes */
+      margin: 0 auto;
+    }
+
+
+    .product-card {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      overflow: hidden;
+      height: 250px;
+      /* 🔹 Un poco más largas */
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-info {
+      flex: 1;
+      padding: 2rem;
+      /* antes era 1.5rem */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+
+    .product-info h3 {
+      color: #000;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-info p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 0.8rem;
+    }
+
+    .yellow-line {
+      width: 50px;
+      height: 4px;
+      background-color: #ffcc00;
+      border-radius: 2px;
+    }
+
+    /* Lado derecho - imagen */
+    .product-card img {
+      height: 100%;
+      width: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      .product-card {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .product-card img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .order-btn {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #ffcc00;
+      color: #000;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .order-btn:hover {
+      background-color: #e6b800;
+      transform: translateY(-2px);
+    }
+
+    .linea-amarilla2 {
+      width: 300px;
+      height: 10px;
+      background-color: #ffcc00;
+      border-radius: 2px;
+      margin: 1.5rem 0;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <a href="index.html"><img src="./img/marval.png" alt="Logo Marval" /></a>
+    </div>
+
+    <div class="nav-links">
+      <a href="productos.html">Productos</a>
+      <a href="calidad.html">Calidad</a>
+    </div>
+
+    <div class="nav-contacto">
+      <a href="contacto.html" class="contacto-btn">
+        <i class="fa-solid fa-phone"></i> Contáctanos
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Nuestros Productos</h1>
+      <p>Soluciones en resortes y formas de alambre diseñadas con precisión, hechas para durar.</p>
+      <div class="linea-amarilla2"></div>
+    </section>
+
+    <section class="product-grid">
+      <div class="product-card">
+        <div class="product-info">
+          <h3>Resortes de Torsión</h3>
+          <p>Diseñados para almacenar energía al girar. Alta resistencia y precisión en aplicaciones mecánicas.</p>
+          <div class="yellow-line"></div>
+          <a href="contacto.html" class="order-btn">Ordenar</a>
+        </div>
+        <img src="./img/torsion.png" alt="Resorte de torsión">
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3>Resortes de Tensión</h3>
+          <p>Se estiran para resistir tracción. Perfectos para asegurar componentes con fuerza y flexibilidad.</p>
+          <div class="yellow-line"></div>
+          <a href="contacto.html" class="order-btn">Ordenar</a>
+        </div>
+        <img src="./img/tension.png" alt="Resorte de tensión">
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3>Resortes de Compresión</h3>
+          <p>Compensación y amortiguación con fuerza controlada. Usados en todo tipo de mecanismos.</p>
+          <div class="yellow-line"></div>
+          <a href="contacto.html" class="order-btn">Ordenar</a>
+        </div>
+        <img src="./img/compresion.png" alt="Resorte de compresión">
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3>Formas de Alambre</h3>
+          <p>Dobladas con precisión para adaptarse a piezas industriales, sistemas mecánicos o usos especiales.</p>
+          <div class="yellow-line"></div>
+          <a href="contacto.html" class="order-btn">Ordenar</a>
+        </div>
+        <img src="./img/alambre.png" alt="Formas de alambre">
+      </div>
+    </section>
+  </main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="./img/marvalb.png" alt="Logo Marval" />
+    </div>
+    <div class="footer-contact">
+      <p><strong>Maximiliano Ramírez Valencia</strong></p>
+      <p class="tel">715 138 5054</p>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+
+</html>
