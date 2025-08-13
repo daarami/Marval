@@ -161,6 +161,7 @@ footer::before {
   .logo {
     padding-top: 0;
     margin-right: 0.5rem;
+    height: 40px;
   }
 
   .nav-links {
