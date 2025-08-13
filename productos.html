@@ -94,6 +94,24 @@
         width: 100%;
         height: auto;
       }
+      
+      .card {
+        flex-direction: row; /* imagen y texto lado a lado */
+        width: 100%; /* que ocupe todo el ancho del contenedor */
+        max-width: 350px; /* para que no quede gigante */
+        gap: 0.8rem;
+        align-items: center;
+      }
+
+      .card img {
+        width: 40%; /* ajusta para que la imagen no sea muy grande */
+        height: auto;
+        object-fit: cover; /* que no se deforme */
+      }
+
+      .card .content {
+        width: 60%; /* el texto ocupa el resto */
+      }
     }
 
     .order-btn {
@@ -120,26 +138,6 @@
       border-radius: 2px;
       margin: 1.5rem 0;
     }
-
-    @media (max-width: 768px) {
-  .card {
-    flex-direction: row; /* imagen y texto lado a lado */
-    width: 100%; /* que ocupe todo el ancho del contenedor */
-    max-width: 350px; /* para que no quede gigante */
-    gap: 0.8rem;
-    align-items: center;
-  }
-
-  .card img {
-    width: 40%; /* ajusta para que la imagen no sea muy grande */
-    height: auto;
-    object-fit: cover; /* que no se deforme */
-  }
-
-  .card .content {
-    width: 60%; /* el texto ocupa el resto */
-  }
-}
 
   </style>
 
@@ -229,3 +227,4 @@
 </body>
 
 </html>
+
