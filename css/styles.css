@@ -1,0 +1,130 @@
+@font-face {
+  font-family: 'CreatoDisplay-Regular';
+  src: url('./fonts/CreatoDisplay-Regular.otf') format('opentype');
+}
+
+body {
+  font-family: 'CreatoDisplay-Regular', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fefefe;
+  color: #1d1d1d;
+}
+
+main {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+  max-width: 1000px;
+}
+
+.hero h1 {
+  font-family: 'CreatoDisplay-Bold', sans-serif;
+  font-size: 4rem;
+  color: #1d1d1d;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.hero h2 {
+  font-family: 'CreatoDisplay-Bold', sans-serif;
+  font-size: 2.5rem;
+  color: #1d1d1d;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #444;
+  text-align: left;
+  line-height: 1.6;
+  max-width: 850px;
+  margin-bottom: 1rem;
+}
+
+.cta-btn {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #ffcc00, #ffaa00);
+  color: #1d1d1d;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(135deg, #e6b800, #cc9900);
+  transform: translateY(-2px);
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+}
+
+.feature-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex: 1 1 250px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  font-family: 'CreatoDisplay-Regular', sans-serif;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card i {
+  font-size: 2rem;
+  color: #ffcc00;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-family: 'CreatoDisplay-Bold', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* NUEVO: para mejorar organización de textos informativos */
+
+.hero ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.hero ul li {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.hero strong {
+  font-family: 'CreatoDisplay-Bold', sans-serif;
+  color: #1d1d1d;
+}
