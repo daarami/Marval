@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inicio | Marval</title>
-  <link rel="stylesheet" href="./css/nav.css" />
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="icon" href="./img/marval_logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,14 +13,11 @@
     :root {
       --amarillo: #ffcc00;
       --negro: #0d0d0d;
-      --gris-oscuro: #1a1a1a;
       --gris-texto: #555;
       --blanco: #ffffff;
       --fondo: #fafaf7;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background-color: var(--fondo);
       color: var(--negro);
@@ -29,15 +25,55 @@
       overflow-x: hidden;
     }
 
-    /* ── HERO ── */
+    /* ══ NAV ══ */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      background-color: var(--negro);
+      border-bottom: 1px solid #1f1f1f;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 68px;
+    }
+    .nav-logo img { height: 32px; display: block; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #aaa;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blanco); }
+    .nav-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--amarillo);
+      color: var(--negro);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta a:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* ══ HERO ══ */
     .hero {
-      position: relative;
-      min-height: 92vh;
+      width: 100%;
+      min-height: calc(100vh - 68px);
       display: grid;
       grid-template-columns: 1fr 1fr;
       overflow: hidden;
     }
-
     .hero-left {
       background-color: var(--negro);
       display: flex;
@@ -47,466 +83,244 @@
       position: relative;
       z-index: 1;
     }
-
     .hero-left::after {
       content: '';
       position: absolute;
-      right: -60px;
-      top: 0;
-      width: 120px;
-      height: 100%;
+      right: -60px; top: 0;
+      width: 120px; height: 100%;
       background-color: var(--negro);
       clip-path: polygon(0 0, 0% 100%, 100% 100%);
       z-index: 2;
     }
-
     .hero-eyebrow {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--amarillo);
-      margin-bottom: 1.5rem;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--amarillo); margin-bottom: 1.5rem;
     }
-
     .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3.5rem, 6vw, 5.5rem);
-      line-height: 1;
-      color: var(--blanco);
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.02em;
+      line-height: 1; color: var(--blanco);
+      margin-bottom: 1.5rem; letter-spacing: 0.02em;
     }
-
-    .hero h1 span {
-      color: var(--amarillo);
-    }
-
+    .hero h1 span { color: var(--amarillo); }
     .hero-desc {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: #aaa;
-      max-width: 440px;
-      margin-bottom: 2.5rem;
+      font-size: 1.05rem; line-height: 1.7;
+      color: #aaa; max-width: 440px; margin-bottom: 2.5rem;
     }
-
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
-      background-color: var(--amarillo);
-      color: var(--negro);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.85rem 2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      background-color: var(--amarillo); color: var(--negro);
+      font-weight: 600; font-size: 0.95rem;
+      padding: 0.85rem 2rem; border-radius: 4px;
+      text-decoration: none; display: inline-flex;
+      align-items: center; gap: 0.5rem;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255,204,0,0.35);
-    }
-
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,204,0,0.35); }
     .btn-secondary {
-      background: transparent;
-      color: var(--blanco);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.85rem 2rem;
-      border-radius: 4px;
-      border: 1.5px solid #444;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      background: transparent; color: var(--blanco);
+      font-weight: 500; font-size: 0.95rem;
+      padding: 0.85rem 2rem; border-radius: 4px;
+      border: 1.5px solid #444; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
       transition: border-color 0.2s, color 0.2s;
     }
-    .btn-secondary:hover {
-      border-color: var(--amarillo);
-      color: var(--amarillo);
-    }
-
+    .btn-secondary:hover { border-color: var(--amarillo); color: var(--amarillo); }
     .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 3.5rem;
-      padding-top: 2rem;
+      display: flex; gap: 2.5rem;
+      margin-top: 3.5rem; padding-top: 2rem;
       border-top: 1px solid #2a2a2a;
     }
     .stat-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
-      color: var(--amarillo);
-      line-height: 1;
+      font-size: 2.2rem; color: var(--amarillo); line-height: 1;
     }
     .stat-label {
-      font-size: 0.8rem;
-      color: #888;
-      margin-top: 0.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      font-size: 0.78rem; color: #888; margin-top: 0.25rem;
+      text-transform: uppercase; letter-spacing: 0.05em;
     }
-
+    /* Lado derecho: fondo BLANCO para imagen sin recorte */
     .hero-right {
       position: relative;
-      background: linear-gradient(135deg, #f5f0d5, #ece7c5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem;
-      overflow: hidden;
+      background: var(--blanco);
+      display: flex; align-items: center; justify-content: center;
+      padding: 3rem 4rem; overflow: hidden;
     }
-
     .hero-right::before {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 30px,
-        rgba(0,0,0,0.025) 30px,
-        rgba(0,0,0,0.025) 31px
+        45deg, transparent, transparent 40px,
+        rgba(0,0,0,0.015) 40px, rgba(0,0,0,0.015) 41px
       );
+      pointer-events: none;
     }
-
-    .hero-img-wrap {
-      position: relative;
-      z-index: 1;
-    }
-
+    .hero-img-wrap { position: relative; z-index: 1; }
     .hero-img {
-      width: 100%;
-      max-width: 420px;
-      border-radius: 12px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.2);
-      display: block;
+      width: 100%; max-width: 440px; display: block;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
     }
-
     .hero-badge {
-      position: absolute;
-      bottom: -20px;
-      left: -30px;
-      background: var(--negro);
-      color: var(--blanco);
-      padding: 1rem 1.4rem;
-      border-radius: 10px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      line-height: 1.4;
+      position: absolute; bottom: -16px; left: -24px;
+      background: var(--negro); color: var(--blanco);
+      padding: 0.9rem 1.3rem; border-radius: 10px;
+      font-size: 0.82rem; font-weight: 500;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      display: flex; align-items: center; gap: 0.6rem; line-height: 1.4;
     }
-    .hero-badge i {
-      color: var(--amarillo);
-      font-size: 1.3rem;
-    }
+    .hero-badge i { color: var(--amarillo); font-size: 1.2rem; }
 
-    /* ── LOGOS / TRUST BAR ── */
+    /* ══ TRUST BAR ══ */
     .trust-bar {
-      background: var(--negro);
-      color: #666;
-      padding: 1.1rem 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 500;
+      width: 100%; background: var(--negro); color: #666;
+      padding: 1.1rem 3rem; display: flex;
+      align-items: center; justify-content: center;
+      gap: 1rem; font-size: 0.78rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 500; flex-wrap: wrap;
     }
     .trust-bar span { color: var(--amarillo); }
-    .trust-divider { width: 1px; height: 16px; background: #333; }
+    .trust-divider { width: 1px; height: 14px; background: #2a2a2a; }
 
-    /* ── FEATURES ── */
-    .features-section {
-      padding: 6rem 5rem;
-      background: var(--fondo);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
+    /* ══ SECCIÓN GENÉRICA ══ */
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
     .section-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--amarillo);
-      margin-bottom: 0.75rem;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--amarillo); margin-bottom: 0.75rem;
     }
     .section-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.2rem, 4vw, 3.2rem);
-      color: var(--negro);
-      letter-spacing: 0.02em;
-      line-height: 1.05;
+      color: var(--negro); letter-spacing: 0.02em; line-height: 1.05;
     }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
+    /* ══ FEATURES ══ */
+    .features-section { width: 100%; padding: 6rem 5rem; background: var(--fondo); }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .feature-card {
-      background: var(--blanco);
-      border: 1.5px solid #e8e8e0;
-      border-radius: 12px;
-      padding: 2.2rem;
+      background: var(--blanco); border: 1.5px solid #e8e8e0;
+      border-radius: 12px; padding: 2.2rem;
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .feature-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 3px;
-      background: var(--amarillo);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 3px; background: var(--amarillo);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
     }
-    .feature-card:hover {
-      border-color: #d0d0c0;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.07);
-      transform: translateY(-4px);
-    }
+    .feature-card:hover { border-color: #d0d0c0; box-shadow: 0 12px 40px rgba(0,0,0,0.07); transform: translateY(-4px); }
     .feature-card:hover::before { transform: scaleX(1); }
-
     .feature-icon {
-      width: 52px; height: 52px;
-      background: #fff9d6;
-      border-radius: 10px;
+      width: 50px; height: 50px; background: #fff9d6; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.3rem;
-      font-size: 1.3rem;
-      color: #b89500;
+      margin-bottom: 1.2rem; font-size: 1.2rem; color: #b89500;
     }
-    .feature-card h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-      color: var(--negro);
-    }
-    .feature-card p {
-      font-size: 0.92rem;
-      color: var(--gris-texto);
-      line-height: 1.65;
-    }
+    .feature-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--negro); }
+    .feature-card p { font-size: 0.9rem; color: var(--gris-texto); line-height: 1.65; }
 
-    /* ── TIPOS DE RESORTE ── */
-    .tipos-section {
-      background: var(--negro);
-      padding: 6rem 5rem;
-    }
+    /* ══ TIPOS ══ */
+    .tipos-section { width: 100%; background: var(--negro); padding: 6rem 5rem; }
     .tipos-section .section-title { color: var(--blanco); }
-
-    .tipos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
+    .tipos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
     .tipo-card {
-      background: #181818;
-      border: 1px solid #2a2a2a;
-      border-radius: 12px;
-      padding: 2rem;
+      background: #181818; border: 1px solid #2a2a2a;
+      border-radius: 12px; padding: 2rem;
       transition: border-color 0.25s, background 0.25s;
-      cursor: default;
     }
-    .tipo-card:hover {
-      border-color: var(--amarillo);
-      background: #1e1e1e;
-    }
+    .tipo-card:hover { border-color: var(--amarillo); background: #1e1e1e; }
     .tipo-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      color: #2a2a2a;
-      line-height: 1;
-      margin-bottom: 0.5rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 3rem;
+      color: #2a2a2a; line-height: 1; margin-bottom: 0.5rem;
     }
     .tipo-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      color: var(--blanco);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.75rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+      color: var(--blanco); letter-spacing: 0.04em; margin-bottom: 0.75rem;
     }
-    .tipo-card p {
-      font-size: 0.9rem;
-      color: #888;
-      line-height: 1.65;
-    }
+    .tipo-card p { font-size: 0.9rem; color: #888; line-height: 1.65; }
     .tipo-tag {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #2a2a2a;
-      color: var(--amarillo);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.75rem;
-      border-radius: 3px;
+      display: inline-block; margin-top: 1rem;
+      background: #2a2a2a; color: var(--amarillo);
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 3px;
     }
 
-    /* ── CTA BANNER ── */
+    /* ══ CTA BANNER ══ */
     .cta-banner {
-      background: var(--amarillo);
-      padding: 5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
+      width: 100%; background: var(--amarillo); padding: 5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
     }
     .cta-banner h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--negro);
-      line-height: 1.05;
-      max-width: 600px;
+      color: var(--negro); line-height: 1.05; max-width: 600px;
     }
     .btn-dark {
-      background: var(--negro);
-      color: var(--blanco);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 1rem 2.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      transition: opacity 0.2s, transform 0.2s;
-      flex-shrink: 0;
+      background: var(--negro); color: var(--blanco);
+      font-weight: 600; font-size: 1rem;
+      padding: 1rem 2.5rem; border-radius: 4px;
+      text-decoration: none; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      flex-shrink: 0; transition: opacity 0.2s, transform 0.2s;
     }
     .btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
 
-    /* ── PROCESO ── */
-    .proceso-section {
-      padding: 6rem 5rem;
-      background: var(--fondo);
-    }
-
+    /* ══ PROCESO ══ */
+    .proceso-section { width: 100%; padding: 6rem 5rem; background: var(--fondo); }
     .proceso-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      margin-top: 3.5rem;
-      position: relative;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      margin-top: 3.5rem; position: relative;
     }
     .proceso-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: 12%;
-      width: 76%;
-      height: 2px;
-      background: #e0e0d0;
-      z-index: 0;
+      content: ''; position: absolute;
+      top: 28px; left: 12%; width: 76%; height: 2px;
+      background: #e0e0d0; z-index: 0;
     }
-
-    .paso {
-      text-align: center;
-      padding: 0 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
+    .paso { text-align: center; padding: 0 1.5rem; position: relative; z-index: 1; }
     .paso-num {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: var(--blanco);
-      border: 2px solid #e0e0d0;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--blanco); border: 2px solid #e0e0d0;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      color: var(--negro);
-      margin: 0 auto 1.2rem;
-      transition: background 0.25s, border-color 0.25s, color 0.25s;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
+      color: var(--negro); margin: 0 auto 1.2rem;
+      transition: background 0.25s, border-color 0.25s;
     }
-    .paso:hover .paso-num {
-      background: var(--amarillo);
-      border-color: var(--amarillo);
-    }
-    .paso h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--negro);
-    }
-    .paso p {
-      font-size: 0.85rem;
-      color: var(--gris-texto);
-      line-height: 1.6;
-    }
+    .paso:hover .paso-num { background: var(--amarillo); border-color: var(--amarillo); }
+    .paso h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--negro); }
+    .paso p { font-size: 0.85rem; color: var(--gris-texto); line-height: 1.6; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--negro);
-      color: var(--blanco);
-      padding: 3rem 5rem;
-    }
+    /* ══ FOOTER ══ */
+    footer { width: 100%; background: var(--negro); color: var(--blanco); padding: 3rem 5rem; }
     .footer-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      border-bottom: 1px solid #222;
-      padding-bottom: 2rem;
-      margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+      border-bottom: 1px solid #222; padding-bottom: 2rem; margin-bottom: 1.5rem;
     }
     .footer-logo img { height: 36px; opacity: 0.85; }
     .footer-contact p { font-size: 0.9rem; color: #999; }
     .footer-contact strong { color: var(--blanco); }
     .footer-contact .tel {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      color: var(--amarillo);
-      letter-spacing: 0.05em;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem;
+      color: var(--amarillo); letter-spacing: 0.05em;
     }
-    .footer-bottom {
-      font-size: 0.78rem;
-      color: #555;
-      text-align: center;
-    }
+    .footer-bottom { font-size: 0.78rem; color: #555; text-align: center; }
 
-    /* ── RESPONSIVE ── */
+    /* ══ RESPONSIVE ══ */
     @media (max-width: 900px) {
+      .site-nav { padding: 0 1.2rem; }
       .hero { grid-template-columns: 1fr; min-height: unset; }
       .hero-left { padding: 4rem 2rem; }
       .hero-left::after { display: none; }
-      .hero-right { min-height: 320px; padding: 2rem; }
+      .hero-right { min-height: 280px; padding: 2.5rem 2rem; }
       .features-section, .tipos-section, .proceso-section, .cta-banner { padding: 4rem 1.5rem; }
       .features-grid, .tipos-grid { grid-template-columns: 1fr; }
       .proceso-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .proceso-steps::before { display: none; }
       footer { padding: 2.5rem 1.5rem; }
-      .trust-bar { flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 1rem; }
+      .trust-bar { padding: 0.9rem 1rem; gap: 0.6rem; }
     }
-
     @media (max-width: 520px) {
       .hero h1 { font-size: 3rem; }
       .hero-stats { gap: 1.5rem; }
@@ -517,27 +331,21 @@
 </head>
 <body>
 
-  <!-- NAV -->
-  <div id="nav-placeholder">
-    <nav>
-      <div class="logo">
-        <a href="index.html"><img src="./img/marval.png" alt="Logo Marval"></a>
-      </div>
-      <div class="nav-links">
-        <a href="productos.html">Productos</a>
-        <a href="calidad.html">Calidad</a>
-      </div>
-      <div class="nav-contacto">
-        <a href="contacto.html" class="contacto-btn">
-          <i class="fa-solid fa-phone"></i> Contáctanos
-        </a>
-      </div>
-    </nav>
-  </div>
+  <nav class="site-nav">
+    <div class="nav-logo">
+      <a href="index.html"><img src="./img/marval.png" alt="Logo Marval"></a>
+    </div>
+    <div class="nav-links">
+      <a href="productos.html">Productos</a>
+      <a href="calidad.html">Calidad</a>
+    </div>
+    <div class="nav-cta">
+      <a href="contacto.html"><i class="fa-solid fa-phone"></i> Contáctanos</a>
+    </div>
+  </nav>
 
   <main>
 
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-left">
         <p class="hero-eyebrow">Fabricante mexicano de resortes industriales</p>
@@ -548,21 +356,11 @@
           <a href="contacto.html" class="btn-secondary"><i class="fa-solid fa-phone"></i> Solicitar cotización</a>
         </div>
         <div class="hero-stats">
-          <div>
-            <div class="stat-num">25+</div>
-            <div class="stat-label">Años de experiencia</div>
-          </div>
-          <div>
-            <div class="stat-num">CNC</div>
-            <div class="stat-label">Tecnología de punta</div>
-          </div>
-          <div>
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Materiales certificados</div>
-          </div>
+          <div><div class="stat-num">25+</div><div class="stat-label">Años de experiencia</div></div>
+          <div><div class="stat-num">CNC</div><div class="stat-label">Tecnología de punta</div></div>
+          <div><div class="stat-num">100%</div><div class="stat-label">Materiales certificados</div></div>
         </div>
       </div>
-
       <div class="hero-right">
         <div class="hero-img-wrap">
           <img src="./img/resortes.png" alt="Producción de resortes Marval" class="hero-img" />
@@ -574,7 +372,6 @@
       </div>
     </section>
 
-    <!-- TRUST BAR -->
     <div class="trust-bar">
       <span>✦</span>
       Acero inoxidable certificado
@@ -589,118 +386,56 @@
       <span>✦</span>
     </div>
 
-    <!-- FEATURES -->
     <section class="features-section">
       <div class="section-header">
         <p class="section-eyebrow">Por qué elegirnos</p>
         <h2 class="section-title">Calidad que se siente en cada pieza</h2>
       </div>
       <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
-          <h3>Materiales Certificados</h3>
-          <p>Trabajamos con acero inoxidable y tipo piano de primera calidad para garantizar resistencia y durabilidad en condiciones exigentes.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-industry"></i></div>
-          <h3>Fabricación CNC</h3>
-          <p>Alta precisión con tecnología de control numérico computarizado. Cada resorte cumple con tolerancias exactas según tu especificación.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
-          <h3>Entregas Eficientes</h3>
-          <p>Cumplimos tus tiempos de entrega con atención personalizada. Sin intermediarios: tratas directamente con el fabricante.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-ruler-combined"></i></div>
-          <h3>Fabricación a Medida</h3>
-          <p>Producimos resortes bajo especificación técnica o muestra física. Adaptamos dimensiones, material y acabado a tu necesidad.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
-          <h3>Asesoría Técnica</h3>
-          <p>Contamos con experiencia para orientarte en la selección del tipo y material de resorte ideal para tu aplicación industrial.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
-          <h3>Producción por Volumen</h3>
-          <p>Desde piezas individuales hasta lotes industriales. Ofrecemos precios competitivos para pedidos de cualquier escala.</p>
-        </div>
+        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-certificate"></i></div><h3>Materiales Certificados</h3><p>Trabajamos con acero inoxidable y tipo piano de primera calidad para garantizar resistencia y durabilidad en condiciones exigentes.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-industry"></i></div><h3>Fabricación CNC</h3><p>Alta precisión con tecnología de control numérico computarizado. Cada resorte cumple con tolerancias exactas según tu especificación.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div><h3>Entregas Eficientes</h3><p>Cumplimos tus tiempos de entrega con atención personalizada. Sin intermediarios: tratas directamente con el fabricante.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-ruler-combined"></i></div><h3>Fabricación a Medida</h3><p>Producimos resortes bajo especificación técnica o muestra física. Adaptamos dimensiones, material y acabado a tu necesidad.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-headset"></i></div><h3>Asesoría Técnica</h3><p>Contamos con experiencia para orientarte en la selección del tipo y material de resorte ideal para tu aplicación industrial.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-boxes-stacked"></i></div><h3>Producción por Volumen</h3><p>Desde piezas individuales hasta lotes industriales. Ofrecemos precios competitivos para pedidos de cualquier escala.</p></div>
       </div>
     </section>
 
-    <!-- TIPOS -->
     <section class="tipos-section">
       <div class="section-header">
         <p class="section-eyebrow">Catálogo</p>
         <h2 class="section-title">Tres tipos. Una solución para cada reto.</h2>
       </div>
       <div class="tipos-grid">
-        <div class="tipo-card">
-          <div class="tipo-num">01</div>
-          <h3>Compresión</h3>
-          <p>Diseñados para absorber cargas axiales de empuje. Ideales para válvulas, amortiguadores, mecanismos de retorno y ensambles industriales.</p>
-          <span class="tipo-tag">El más solicitado</span>
-        </div>
-        <div class="tipo-card">
-          <div class="tipo-num">02</div>
-          <h3>Tensión</h3>
-          <p>Trabajan bajo fuerzas de estiramiento. Utilizados en maquinaria agrícola, puertas industriales, herramientas y sistemas mecánicos.</p>
-          <span class="tipo-tag">Alta demanda</span>
-        </div>
-        <div class="tipo-card">
-          <div class="tipo-num">03</div>
-          <h3>Torsión</h3>
-          <p>Generan torque al ser girados. Perfectos para pestillos, bisagras industriales, pinzas y mecanismos de retorno angular.</p>
-          <span class="tipo-tag">Especialidad técnica</span>
-        </div>
+        <div class="tipo-card"><div class="tipo-num">01</div><h3>Compresión</h3><p>Diseñados para absorber cargas axiales de empuje. Ideales para válvulas, amortiguadores, mecanismos de retorno y ensambles industriales.</p><span class="tipo-tag">El más solicitado</span></div>
+        <div class="tipo-card"><div class="tipo-num">02</div><h3>Tensión</h3><p>Trabajan bajo fuerzas de estiramiento. Utilizados en maquinaria agrícola, puertas industriales, herramientas y sistemas mecánicos.</p><span class="tipo-tag">Alta demanda</span></div>
+        <div class="tipo-card"><div class="tipo-num">03</div><h3>Torsión</h3><p>Generan torque al ser girados. Perfectos para pestillos, bisagras industriales, pinzas y mecanismos de retorno angular.</p><span class="tipo-tag">Especialidad técnica</span></div>
       </div>
     </section>
 
-    <!-- CTA BANNER -->
     <div class="cta-banner">
       <h2>¿Necesitas resortes con especificación exacta? Cotiza hoy sin compromiso.</h2>
       <a href="contacto.html" class="btn-dark"><i class="fa-solid fa-paper-plane"></i> Solicitar cotización</a>
     </div>
 
-    <!-- PROCESO -->
     <section class="proceso-section">
       <div class="section-header">
         <p class="section-eyebrow">Así trabajamos</p>
         <h2 class="section-title">Tu pedido, paso a paso</h2>
       </div>
       <div class="proceso-steps">
-        <div class="paso">
-          <div class="paso-num">1</div>
-          <h4>Nos contactas</h4>
-          <p>Compártenos tu requerimiento: tipo, dimensiones o muestra física.</p>
-        </div>
-        <div class="paso">
-          <div class="paso-num">2</div>
-          <h4>Cotizamos</h4>
-          <p>Te enviamos propuesta con precio, material y tiempo de entrega estimado.</p>
-        </div>
-        <div class="paso">
-          <div class="paso-num">3</div>
-          <h4>Fabricamos</h4>
-          <p>Producción CNC con control de calidad en cada etapa del proceso.</p>
-        </div>
-        <div class="paso">
-          <div class="paso-num">4</div>
-          <h4>Entregamos</h4>
-          <p>Tu pedido a tiempo, con las especificaciones acordadas. Sin sorpresas.</p>
-        </div>
+        <div class="paso"><div class="paso-num">1</div><h4>Nos contactas</h4><p>Compártenos tu requerimiento: tipo, dimensiones o muestra física.</p></div>
+        <div class="paso"><div class="paso-num">2</div><h4>Cotizamos</h4><p>Te enviamos propuesta con precio, material y tiempo de entrega estimado.</p></div>
+        <div class="paso"><div class="paso-num">3</div><h4>Fabricamos</h4><p>Producción CNC con control de calidad en cada etapa del proceso.</p></div>
+        <div class="paso"><div class="paso-num">4</div><h4>Entregamos</h4><p>Tu pedido a tiempo, con las especificaciones acordadas. Sin sorpresas.</p></div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
-      <div class="footer-logo">
-        <img src="./img/marvalb.png" alt="Logo Marval" />
-      </div>
+      <div class="footer-logo"><img src="./img/marvalb.png" alt="Logo Marval" /></div>
       <div class="footer-contact">
         <p><strong>Maximiliano Ramírez Valencia</strong></p>
         <p class="tel">715 138 5054</p>
