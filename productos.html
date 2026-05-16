@@ -352,6 +352,75 @@
   transition: opacity 0.2s, transform 0.2s;
 }
 .nav-cta a:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* ══ HAMBURGER ══ */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger-btn.open span:nth-child(2) { opacity: 0; }
+.hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-drawer {
+  display: none;
+  flex-direction: column;
+  background: #111;
+  border-bottom: 1px solid #1f1f1f;
+  position: sticky;
+  top: 82px;
+  z-index: 99;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.mobile-drawer.open { max-height: 300px; }
+.mobile-drawer a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #aaa;
+  text-decoration: none;
+  border-bottom: 1px solid #1a1a1a;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s, background 0.2s;
+}
+.mobile-drawer a i { color: var(--amarillo); font-size: 1rem; }
+.mobile-drawer a:hover { color: #fff; background: #1a1a1a; }
+.mobile-drawer .drawer-cta {
+  margin: 1rem 1.5rem;
+  background: var(--amarillo);
+  color: var(--negro) !important;
+  font-weight: 700;
+  border-radius: 4px;
+  border-bottom: none;
+  justify-content: center;
+}
+.mobile-drawer .drawer-cta i { color: var(--negro) !important; }
+
+@media (max-width: 520px) {
+  .nav-links { display: none; }
+  .desktop-cta { display: none; }
+  .hamburger-btn { display: flex; }
+  .mobile-drawer { display: flex; }
+}
   </style>
 </head>
 <body>
@@ -364,10 +433,22 @@
     <a href="productos.html">Productos</a>
     <a href="calidad.html">Calidad</a>
   </div>
-  <div class="nav-cta">
+  <div class="nav-cta desktop-cta">
     <a href="contacto.html"><i class="fa-solid fa-phone"></i> Contáctanos</a>
   </div>
+
+  <!-- Hamburger solo móvil -->
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Drawer móvil -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="productos.html"><i class="fa-solid fa-gears"></i> Productos</a>
+  <a href="calidad.html"><i class="fa-solid fa-medal"></i> Calidad</a>
+  <a href="contacto.html" class="drawer-cta"><i class="fa-solid fa-phone"></i> Contáctanos</a>
+</div>
 
   <main>
 
@@ -497,4 +578,12 @@
   </footer>
 
 </body>
+  <script>
+  const btn = document.getElementById('hamburgerBtn');
+  const drawer = document.getElementById('mobileDrawer');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+  });
+</script>
 </html>
