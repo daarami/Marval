@@ -72,24 +72,21 @@ border-bottom: 1px solid #1f1f1f;
   width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.3fr 0.7fr;
   overflow: hidden;
 }
-    .hero-left {
-      background-color: var(--negro);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 5rem 4rem 5rem 5rem;
-      position: relative;
-      z-index: 1;
-    }
     .hero-left {
   background-color: var(--negro);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem 4rem 5rem 5rem;
+
+  padding:
+    6rem   /* arriba */
+    6rem   /* derecha */
+    5rem   /* abajo */
+    6rem;  /* izquierda */
+
   position: relative;
   z-index: 1;
 }
