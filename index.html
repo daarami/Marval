@@ -72,13 +72,15 @@
     .nav-cta a:hover { opacity: 0.85; transform: translateY(-1px); }
 
     /* ══ HERO ══ */
-    .hero {
+   .hero {
   width: 100%;
   height: calc(100vh - 82px);
   display: grid;
   grid-template-columns: 65% 35%;
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 0;
 }
 .hero-left {
   background-color: var(--negro);
@@ -149,7 +151,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: 80% center;
   display: block;
 }
 
