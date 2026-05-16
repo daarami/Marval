@@ -323,25 +323,62 @@
       .proceso-steps { grid-template-columns: 1fr; }
       .iso-stats { grid-template-columns: 1fr 1fr; }
     }
+    .site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: var(--negro);
+  border-bottom: 1px solid #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 6rem;
+  height: auto;
+}
+.nav-logo img { height: 60px; display: block; }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #aaa;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ffffff); }
+.nav-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--amarillo);
+  color: var(--negro);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.nav-cta a:hover { opacity: 0.85; transform: translateY(-1px); }
   </style>
 </head>
 <body>
 
   <div id="nav-placeholder">
-    <nav>
-      <div class="logo">
-        <a href="index.html"><img src="./img/marval.png" alt="Logo Marval"></a>
-      </div>
-      <div class="nav-links">
-        <a href="productos.html">Productos</a>
-        <a href="calidad.html">Calidad</a>
-      </div>
-      <div class="nav-contacto">
-        <a href="contacto.html" class="contacto-btn">
-          <i class="fa-solid fa-phone"></i> Contáctanos
-        </a>
-      </div>
-    </nav>
+<nav class="site-nav">
+  <div class="nav-logo">
+    <a href="index.html"><img src="./img/marvalb.png" alt="Logo Marval"></a>
+  </div>
+  <div class="nav-links">
+    <a href="productos.html">Productos</a>
+    <a href="calidad.html">Calidad</a>
+  </div>
+  <div class="nav-cta">
+    <a href="contacto.html"><i class="fa-solid fa-phone"></i> Contáctanos</a>
+  </div>
+</nav>
   </div>
 
   <main>
