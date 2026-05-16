@@ -289,7 +289,6 @@
       .trust-bar { flex-wrap: wrap; gap: 0.5rem; padding: 1rem; }
     }
 
-    /* ══ NAV ══ */
 .site-nav {
   position: sticky;
   top: 0;
@@ -300,20 +299,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 3rem;
-  height: 68px;
+  padding: 1rem 6rem;
+  height: auto;
 }
-
-.nav-logo img {
-  height: 32px;
-  display: block;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
+.nav-logo img { height: 60px; display: block; }
+.nav-links { display: flex; gap: 2rem; }
 .nav-links a {
   font-size: 0.85rem;
   font-weight: 500;
@@ -323,11 +313,7 @@
   text-transform: uppercase;
   transition: color 0.2s;
 }
-
-.nav-links a:hover {
-  color: var(--blanco);
-}
-
+.nav-links a:hover { color: var(--ffffff); }
 .nav-cta a {
   display: inline-flex;
   align-items: center;
@@ -341,32 +327,21 @@
   text-decoration: none;
   transition: opacity 0.2s, transform 0.2s;
 }
-
-.nav-cta a:hover {
-  opacity: 0.85;
-  transform: translateY(-1px);
-}
+.nav-cta a:hover { opacity: 0.85; transform: translateY(-1px); }
   </style>
 </head>
 <body>
 
 <nav class="site-nav">
   <div class="nav-logo">
-    <a href="index.html">
-      <img src="./img/marval.png" alt="Logo Marval">
-    </a>
+    <a href="index.html"><img src="./img/marvalb.png" alt="Logo Marval"></a>
   </div>
-
   <div class="nav-links">
     <a href="productos.html">Productos</a>
     <a href="calidad.html">Calidad</a>
   </div>
-
   <div class="nav-cta">
-    <a href="contacto.html">
-      <i class="fa-solid fa-phone"></i>
-      Contáctanos
-    </a>
+    <a href="contacto.html"><i class="fa-solid fa-phone"></i> Contáctanos</a>
   </div>
 </nav>
 
