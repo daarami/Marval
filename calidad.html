@@ -1,152 +1,297 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calidad | Marval</title>
+  <title>Contáctanos | Marval</title>
   <link rel="stylesheet" href="./css/nav.css" />
   <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" href="./img/marval_logo.png" type="image/png" />
   <style>
+    :root {
+      --amarillo: #ffcc00;
+      --negro: #0d0d0d;
+      --gris-oscuro: #1a1a1a;
+      --gris-texto: #555;
+      --blanco: #ffffff;
+      --fondo: #fafaf7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: linear-gradient(135deg, #fff, #fdf9e6);
-      color: #1d1d1d;
+      background-color: var(--fondo);
+      color: var(--negro);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
     }
 
-    .features {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    .feature-card {
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-      flex: 1 1 500px;
-      display: flex;
+    /* ── HERO CONTACTO ── */
+    .contact-hero {
+      background-color: var(--negro);
+      padding: 6rem 5rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
       overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: rgba(255,204,0,0.05);
+      pointer-events: none;
     }
 
-    .feature-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    .contact-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+      margin-bottom: 1.2rem;
+    }
+    .contact-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      line-height: 1;
+      color: var(--blanco);
+      letter-spacing: 0.02em;
+      margin-bottom: 1.2rem;
+    }
+    .contact-hero h1 span { color: var(--amarillo); }
+    .contact-hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #aaa;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
     }
 
-    .feature-img {
-      flex: 0 0 120px;
-      /* ancho fijo */
-      height: 120px;
-      /* altura fija igual para que sea cuadrado */
-      overflow: hidden;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-    }
-
-    .feature-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      /* muestra toda la imagen sin cortar */
-      display: block;
-      background-color: #fff;
-      /* para que se vea bien si hay espacio alrededor */
-    }
-
-    .feature-content {
-      padding: 1.5rem 2rem;
-      flex: 1;
-      border-bottom: 3px solid #ffcc00;
+    /* ── DATOS DE CONTACTO ── */
+    .contact-data {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      text-align: left;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
     }
-
-
-    .feature-content h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      font-family: 'CreatoDisplay-Bold', sans-serif;
-      color: #1d1d1d;
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 1rem 1.4rem;
+      transition: border-color 0.2s;
     }
-
-    .feature-content p {
-      font-size: 1rem;
-      color: #555;
-      margin: 0;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .hero p {
+    .contact-item:hover { border-color: var(--amarillo); }
+    .contact-item i {
+      color: var(--amarillo);
       font-size: 1.2rem;
-      color: #444;
-      max-width: 850px;
-      margin: 0 auto;
-    }
-
-    .subtitulo {
-      font-family: 'CreatoDisplay-Bold', sans-serif;
-      font-size: 2rem;
-      color: #ffcc00;
-      margin-bottom: 1rem;
+      width: 24px;
       text-align: center;
+      flex-shrink: 0;
+    }
+    .contact-item-text strong {
+      display: block;
+      color: var(--blanco);
+      font-size: 0.95rem;
+    }
+    .contact-item-text span {
+      font-size: 0.85rem;
+      color: #888;
     }
 
-    .linea-amarilla2 {
-      width: 300px;
-      height: 10px;
-      background-color: #ffcc00;
-      border-radius: 2px;
-      margin: 1.5rem 0;
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background-color: #25D366;
+      color: var(--blanco);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 1rem 2.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+    }
+    .whatsapp-btn i { font-size: 1.3rem; }
+
+    /* ── LADO DERECHO HERO ── */
+    .contact-hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
     }
 
-    @media (max-width: 768px) {
-  .features {
-    gap: 1rem;
-    padding: 1rem 0.5rem;
-    max-width: 100%;
-  }
+    .info-card {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 1.8rem 2rem;
+      transition: border-color 0.25s;
+    }
+    .info-card:hover { border-color: #3a3a3a; }
+    .info-card-icon {
+      width: 44px; height: 44px;
+      background: rgba(255,204,0,0.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--amarillo);
+      margin-bottom: 1rem;
+    }
+    .info-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--blanco);
+      margin-bottom: 0.4rem;
+    }
+    .info-card p {
+      font-size: 0.87rem;
+      color: #888;
+      line-height: 1.6;
+    }
 
-  .feature-card {
-    flex-direction: column; /* imagen arriba, texto abajo para pantallas pequeñas */
-    max-width: 100%;
-    flex: 1 1 100%;
-  }
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--amarillo);
+      color: var(--negro);
+      padding: 1.1rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .trust-divider { width: 1px; height: 16px; background: rgba(0,0,0,0.2); }
 
-  .feature-img {
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    border-radius: 20px 20px 0 0;
-  }
+    /* ── FAQ / RAZONES ── */
+    .razones-section {
+      padding: 6rem 5rem;
+      background: var(--fondo);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--negro);
+      letter-spacing: 0.02em;
+    }
 
-  .feature-img img {
-    object-fit: cover;
-    height: 180px;
-  }
+    .razones-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .razon-card {
+      background: var(--blanco);
+      border: 1.5px solid #e8e8e0;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .razon-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--amarillo);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .razon-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.07); }
+    .razon-card:hover::before { transform: scaleX(1); }
+    .razon-icon {
+      width: 48px; height: 48px;
+      background: #fff9d6;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      color: #b89500;
+      margin-bottom: 1.2rem;
+    }
+    .razon-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--negro);
+    }
+    .razon-card p {
+      font-size: 0.88rem;
+      color: var(--gris-texto);
+      line-height: 1.65;
+    }
 
-  .feature-content {
-    border-bottom: none;
-    padding: 1rem 1.5rem;
-    text-align: center;
-  }
-}
+    /* ── FOOTER ── */
+    footer {
+      background: var(--negro);
+      color: var(--blanco);
+      padding: 3rem 5rem;
+    }
+    .footer-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      border-bottom: 1px solid #222;
+      padding-bottom: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-logo img { height: 36px; opacity: 0.85; }
+    .footer-contact p { font-size: 0.9rem; color: #999; }
+    .footer-contact strong { color: var(--blanco); }
+    .footer-contact .tel {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: var(--amarillo);
+      letter-spacing: 0.05em;
+    }
+    .footer-bottom { font-size: 0.78rem; color: #555; text-align: center; }
 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .contact-hero { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 2.5rem; }
+      .razones-section { padding: 4rem 1.5rem; }
+      .razones-grid { grid-template-columns: 1fr; }
+      footer { padding: 2.5rem 1.5rem; }
+      .trust-bar { flex-wrap: wrap; gap: 0.5rem; padding: 1rem; }
+    }
   </style>
 </head>
-
 <body>
+
   <div id="nav-placeholder">
     <nav>
       <div class="logo">
@@ -158,93 +303,114 @@
       </div>
       <div class="nav-contacto">
         <a href="contacto.html" class="contacto-btn">
-          Contáctanos
+          <i class="fa-solid fa-phone"></i> Contáctanos
         </a>
       </div>
     </nav>
   </div>
 
   <main>
-    <section class="hero">
-      <h1>Nuestra Calidad</h1>
-      <p>Desde los materiales hasta la maquinaria, en Marval garantizamos la excelencia en cada resorte.</p>
-      <div class="linea-amarilla2"></div>
-    </section>
-    <section class="features">
-      <div class="feature-card">
-        <div class="feature-img">
-          <img src="./img/calidad/materiales.png" alt="Materiales Premium" />
+
+    <!-- HERO -->
+    <section class="contact-hero">
+      <div>
+        <p class="contact-eyebrow">Atención directa con el fabricante</p>
+        <h1>¡Ordena <span>Ya!</span></h1>
+        <p class="contact-hero-desc">Estamos listos para ayudarte a conseguir los resortes que tu proyecto necesita. Contáctanos y recibe atención directa y personalizada.</p>
+
+        <div class="contact-data">
+          <div class="contact-item">
+            <i class="fa-solid fa-user"></i>
+            <div class="contact-item-text">
+              <strong>Maximiliano Ramírez Valencia</strong>
+              <span>Contacto directo con el fabricante</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div class="contact-item-text">
+              <strong>715 138 5054</strong>
+              <span>Llamadas y WhatsApp</span>
+            </div>
+          </div>
         </div>
-        <div class="feature-content">
-          <h3>Materiales Premium</h3>
-          <p>Utilizamos acero inoxidable T302, grado alimenticio y acero tipo piano de alta resistencia.</p>
-        </div>
+
+        <a href="https://wa.me/5217151385054" target="_blank" class="whatsapp-btn">
+          <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+        </a>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-img">
-          <img src="./img/calidad/presicion.png" alt="Precisión en Diámetros" />
+      <div class="contact-hero-right">
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Respuesta rápida</h3>
+          <p>Respondemos cotizaciones en menos de 24 horas. Sin burocracia, sin intermediarios.</p>
         </div>
-        <div class="feature-content">
-          <h3>Precisión en Diámetros</h3>
-          <p>Fabricamos con precisión desde 0.010” hasta 0.500” en maquinaria especializada.</p>
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+          <h3>Cotización a tu medida</h3>
+          <p>Compártenos dimensiones, muestra física o especificación técnica y te enviamos propuesta detallada.</p>
         </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-img">
-          <img src="./img/calidad/produccion.png" alt="Producción CNC" />
-        </div>
-        <div class="feature-content">
-          <h3>Producción CNC</h3>
-          <p>Nuestros procesos automatizados aseguran piezas exactas, en menor tiempo y con mayor consistencia.</p>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-img">
-          <img src="./img/calidad/mediciones.png" alt="Mediciones con Dinamómetro" />
-        </div>
-        <div class="feature-content">
-          <h3>Mediciones con Dinamómetro</h3>
-          <p>Verificamos fuerza y desempeño con instrumentos de medición de alta precisión.</p>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-img">
-          <img src="./img/calidad/certificacion.png" alt="Certificación ISO 9001:2015" />
-        </div>
-        <div class="feature-content">
-          <h3>Certificación ISO 9001:2015</h3>
-          <p>Seguimos procesos avalados internacionalmente para asegurar máxima calidad en cada lote.</p>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-img">
-          <img src="./img/calidad/confianza.png" alt="Confianza y Soporte" />
-        </div>
-        <div class="feature-content">
-          <h3>Confianza y Soporte</h3>
-          <p>Te asesoramos desde el diseño hasta la entrega, con atención personalizada en cada proyecto.</p>
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <h3>Pedidos de cualquier volumen</h3>
+          <p>Atendemos desde piezas individuales hasta lotes industriales con precios competitivos.</p>
         </div>
       </div>
     </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+      <span>✦</span>
+      Sin intermediarios
+      <div class="trust-divider"></div>
+      Cotización en 24 hrs
+      <div class="trust-divider"></div>
+      Fabricación a medida
+      <div class="trust-divider"></div>
+      25+ años de experiencia
+      <span>✦</span>
+    </div>
+
+    <!-- RAZONES -->
+    <section class="razones-section">
+      <div class="section-header">
+        <p class="section-eyebrow">Por qué contactarnos</p>
+        <h2 class="section-title">Trato directo, resultados reales</h2>
+      </div>
+      <div class="razones-grid">
+        <div class="razon-card">
+          <div class="razon-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3>Asesoría técnica incluida</h3>
+          <p>Te orientamos en la selección del tipo de resorte, material y dimensiones ideales para tu aplicación.</p>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon"><i class="fa-solid fa-file-invoice"></i></div>
+          <h3>Cotización sin compromiso</h3>
+          <p>Solicita tu cotización sin costo. Te enviamos propuesta completa con precio, material y tiempo de entrega.</p>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Calidad garantizada</h3>
+          <p>Cada pedido pasa por control de calidad con instrumentos de precisión antes de salir de planta.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-  <div class="footer-container">
-    <div class="footer-logo">
-      <img src="./img/marvalb.png" alt="Logo Marval" />
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="./img/marvalb.png" alt="Logo Marval" />
+      </div>
+      <div class="footer-contact">
+        <p><strong>Maximiliano Ramírez Valencia</strong></p>
+        <p class="tel">715 138 5054</p>
+      </div>
     </div>
-    <div class="footer-contact">
-      <p><strong>Maximiliano Ramírez Valencia</strong></p>
-      <p class="tel">715 138 5054</p>
-    </div>
-  </div>
-</footer>
+    <p class="footer-bottom">© 2025 Marval Resortes. Fabricante mexicano de resortes industriales.</p>
+  </footer>
+
 </body>
-
-
 </html>
